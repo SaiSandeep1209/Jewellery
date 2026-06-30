@@ -1,0 +1,25 @@
+# Netlify build config for the React client (this is a monorepo; the frontend
+# lives in client/). The Express API in server/ is NOT hosted on Netlify — see
+# the note at the bottom about pointing the client at a deployed backend.
+[build]
+  base = "client"
+  command = "npm run build"
+  publish = "dist"          # relative to base => client/dist
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# OPTIONAL — once the API is hosted (e.g. Render/Railway), proxy /api to it so
+# the catalogue + admin work in production. Put this BEFORE the SPA catch-all.
+# [[redirects]]
+#   from = "/api/*"
+#   to = "https://YOUR-API-HOST/api/:splat"
+#   status = 200
+#   force = true
+
+# Single-page app: serve index.html for any route (fixes 404 on /collections,
+# /admin, /item/:id and on refresh).
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
