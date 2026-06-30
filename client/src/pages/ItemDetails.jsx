@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import ItemImage from '../components/ui/ItemImage'
 import Loader from '../components/ui/Loader'
 import { itemsApi } from '../services/api'
-import { inr, enquiryLink, stockLabel, mediaUrl } from '../lib/format'
+import { inr, enquiryLink, stockLabel, mediaUrl, grams } from '../lib/format'
 
 export default function ItemDetails() {
   const { id } = useParams()
@@ -65,6 +65,26 @@ export default function ItemDetails() {
           <p className="mt-1 text-sm text-stone">
             {stock.text}{item.quantity > 0 ? ` · ${item.quantity} available` : ''}
           </p>
+
+          {/* Specs */}
+          <dl className="mt-6 grid max-w-sm grid-cols-2 gap-x-6 gap-y-3 border-t border-line pt-6 text-sm">
+            {item.weight ? (
+              <div>
+                <dt className="text-xs uppercase tracking-wide text-stone">Weight</dt>
+                <dd className="mt-0.5 text-ink">{grams(item.weight)}</dd>
+              </div>
+            ) : null}
+            {item.material ? (
+              <div>
+                <dt className="text-xs uppercase tracking-wide text-stone">Material</dt>
+                <dd className="mt-0.5 text-ink">{item.material}</dd>
+              </div>
+            ) : null}
+            <div>
+              <dt className="text-xs uppercase tracking-wide text-stone">Category</dt>
+              <dd className="mt-0.5 text-ink">{item.category}</dd>
+            </div>
+          </dl>
 
           {item.description && <p className="mt-6 max-w-prose text-stone">{item.description}</p>}
 

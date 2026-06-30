@@ -5,7 +5,7 @@ import Loader from '../ui/Loader'
 import ItemImage from '../ui/ItemImage'
 import { useAuth } from '../../context/AuthContext'
 import { itemsApi } from '../../services/api'
-import { inr } from '../../lib/format'
+import { inr, grams } from '../../lib/format'
 import { site } from '../../config/site'
 
 export default function AdminDashboard() {
@@ -73,6 +73,7 @@ export default function AdminDashboard() {
                   <th className="px-5 py-3">Item</th>
                   <th className="px-5 py-3">Category</th>
                   <th className="px-5 py-3">Price</th>
+                  <th className="px-5 py-3">Weight</th>
                   <th className="px-5 py-3">Qty</th>
                   <th className="px-5 py-3">Featured</th>
                   <th className="px-5 py-3 text-right">Actions</th>
@@ -89,6 +90,7 @@ export default function AdminDashboard() {
                     </td>
                     <td className="px-5 py-3 text-stone">{item.category}</td>
                     <td className="px-5 py-3 text-ink">{inr(item.price)}</td>
+                    <td className="px-5 py-3 text-stone">{grams(item.weight) || '—'}</td>
                     <td className={`px-5 py-3 ${item.quantity <= 0 ? 'text-red-600' : item.quantity <= 3 ? 'text-amber-700' : 'text-ink'}`}>
                       {item.quantity}
                     </td>

@@ -5,7 +5,7 @@ import { mediaUrl } from '../../lib/format'
 
 const CATEGORY_SUGGESTIONS = ['Rings', 'Necklaces', 'Earrings', 'Bangles', 'Bracelets', 'Pendants', 'Chains']
 
-const empty = { name: '', category: '', material: '', description: '', price: '', quantity: '', featured: false }
+const empty = { name: '', category: '', material: '', description: '', price: '', weight: '', quantity: '', featured: false }
 
 /** Create or edit an item. Pass `item` to edit; omit to create. */
 export default function ItemForm({ item, onSaved, onCancel }) {
@@ -19,8 +19,8 @@ export default function ItemForm({ item, onSaved, onCancel }) {
     if (item) {
       reset({
         name: item.name, category: item.category, material: item.material || '',
-        description: item.description || '', price: item.price, quantity: item.quantity,
-        featured: item.featured,
+        description: item.description || '', price: item.price, weight: item.weight ?? '',
+        quantity: item.quantity, featured: item.featured,
       })
       setImage(item.images?.[0] || '')
     } else {
@@ -46,7 +46,13 @@ export default function ItemForm({ item, onSaved, onCancel }) {
 
   const onSubmit = async (values) => {
     setServerError('')
-    const payload = { ...values, price: Number(values.price), quantity: Number(values.quantity), images: image ? [image] : [] }
+    const payload = {
+      ...values,
+      price: Number(values.price),
+      weight: values.weight === '' ? 0 : Number(values.weight),
+      quantity: Number(values.quantity),
+      images: image ? [image] : [],
+    }
     try {
       const saved = editing ? await itemsApi.update(item._id, payload) : await itemsApi.create(payload)
       onSaved(saved)
@@ -85,6 +91,12 @@ export default function ItemForm({ item, onSaved, onCancel }) {
           <label className="label">Price (₹)</label>
           <input type="number" min="0" className="field" {...register('price', { required: 'Required', min: { value: 0, message: '≥ 0' } })} />
           {errors.price && <p className="mt-1 text-xs text-red-600">{errors.price.message}</p>}
+        </div>
+
+        <div>
+          <label className="label">Weight (grams)</label>
+          <input type="number" min="0" step="0.01" className="field" placeholder="e.g. 12.5" {...register('weight', { min: { value: 0, message: '≥ 0' } })} />
+          {errors.weight && <p className="mt-1 text-xs text-red-600">{errors.weight.message}</p>}
         </div>
 
         <div>

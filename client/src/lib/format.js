@@ -30,6 +30,9 @@ export function enquiryLink(item) {
   )
 }
 
+/** Weight label, e.g. 12.5 -> "12.5 g" (empty if no weight). */
+export const grams = (w) => (w ? `${w} g` : '')
+
 /** Stock label from quantity. */
 export function stockLabel(qty) {
   if (qty <= 0) return { text: 'Enquire for availability', tone: 'muted' }

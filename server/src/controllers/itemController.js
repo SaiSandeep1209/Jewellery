@@ -28,13 +28,14 @@ export async function getItem(req, res) {
 }
 
 function pickFields(body) {
-  const { name, category, material, description, price, quantity, images, featured } = body
+  const { name, category, material, description, price, weight, quantity, images, featured } = body
   const out = {}
   if (name !== undefined) out.name = name
   if (category !== undefined) out.category = category
   if (material !== undefined) out.material = material
   if (description !== undefined) out.description = description
   if (price !== undefined) out.price = Number(price)
+  if (weight !== undefined) out.weight = Number(weight)
   if (quantity !== undefined) out.quantity = Number(quantity)
   if (images !== undefined) out.images = Array.isArray(images) ? images : [images].filter(Boolean)
   if (featured !== undefined) out.featured = Boolean(featured)

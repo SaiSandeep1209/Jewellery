@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import ItemImage from './ui/ItemImage'
-import { inr, enquiryLink, stockLabel } from '../lib/format'
+import { inr, enquiryLink, stockLabel, grams } from '../lib/format'
 
 const toneClass = {
   ok: 'text-emerald-700',
@@ -38,7 +38,11 @@ export default function ItemCard({ item }) {
             {item.name}
           </h3>
         </Link>
-        {item.material && <p className="mt-0.5 text-xs uppercase tracking-wide text-stone">{item.material}</p>}
+        {(item.material || item.weight) && (
+          <p className="mt-0.5 text-xs uppercase tracking-wide text-stone">
+            {[item.material, grams(item.weight)].filter(Boolean).join(' · ')}
+          </p>
+        )}
 
         <div className="mt-3 flex items-baseline justify-between">
           <span className="font-serif text-2xl text-ink">{inr(item.price)}</span>

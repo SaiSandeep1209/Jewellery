@@ -8,6 +8,7 @@ const itemSchema = new mongoose.Schema(
     material: { type: String, trim: true, default: '' }, // e.g. 22K Gold, Diamond
     description: { type: String, trim: true, default: '' },
     price: { type: Number, required: true, min: 0 }, // INR
+    weight: { type: Number, min: 0, default: 0 }, // grams
     quantity: { type: Number, required: true, min: 0, default: 0 }, // units in store
     images: { type: [String], default: [] }, // /uploads/x.jpg or absolute URLs
     featured: { type: Boolean, default: false },
