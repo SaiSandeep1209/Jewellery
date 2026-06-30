@@ -1,0 +1,14 @@
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+.env
+**/.env
+*.local
+.vite/
+.DS_Store
+*.log
+
+# Uploaded item images (keep the folder, ignore contents)
+server/uploads/*
+!server/uploads/.gitkeep

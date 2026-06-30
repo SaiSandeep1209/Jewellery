@@ -1,0 +1,17 @@
+{
+  "name": "djewellry",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Aurelia — luxury jewellery catalogue (MERN). Visual storefront with WhatsApp enquiry, map location, and an admin to manage items.",
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,magenta \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "start": "npm --prefix server start",
+    "seed": "npm --prefix server run seed",
+    "install:all": "npm install && npm --prefix server install && npm --prefix client install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
