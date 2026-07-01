@@ -41,14 +41,19 @@ export default function Hero() {
           Pieces made to be<br />treasured.
         </motion.h1>
 
-        <motion.p
-          className="mt-6 max-w-xl font-serif text-xl italic text-champagne sm:text-2xl"
+        <motion.div
+          className="mt-6 max-w-xl font-serif italic leading-snug text-champagne"
+          style={{ fontSize: '2.5rem' }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          “{site.motto}”
-        </motion.p>
+          {site.motto.map((line, i) => (
+            <span key={i} className="block">
+              {i === 0 ? `“${line}` : `${line}”`}
+            </span>
+          ))}
+        </motion.div>
 
         <motion.p
           className="mt-4 max-w-xl text-lg text-white/85"

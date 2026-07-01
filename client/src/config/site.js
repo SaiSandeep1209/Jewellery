@@ -5,7 +5,7 @@
 export const site = {
   name: 'Dasari Jewellers',
   tagline: 'Fine Jewellery',
-  motto: 'Trust is our strength · Quality is our goal',
+  motto: ['Trust is our strength', 'Quality is our goal'],
   customOrders: 'We take custom orders too',
   blurb: 'A curated house of gold, diamond and pearl pieces — crafted to be lived in and handed down.',
 
