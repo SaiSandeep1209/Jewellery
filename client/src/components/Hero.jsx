@@ -29,7 +29,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.7 }}
         >
-          {site.tagline} · Hyderabad
+          {site.tagline} · Devarapalli
         </motion.span>
 
         <motion.h1
@@ -42,10 +42,19 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p
-          className="mt-5 max-w-xl text-lg text-white/85"
+          className="mt-6 max-w-xl font-serif text-xl italic text-champagne sm:text-2xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        >
+          “{site.motto}”
+        </motion.p>
+
+        <motion.p
+          className="mt-4 max-w-xl text-lg text-white/85"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.65, duration: 0.8 }}
         >
           {site.blurb}
         </motion.p>
@@ -59,6 +68,15 @@ export default function Hero() {
           <Link to="/collections" className="btn bg-white text-ink hover:bg-champagne">View the Collection</Link>
           <Link to="/visit" className="btn border border-white/60 text-white hover:bg-white/10">Visit the Store</Link>
         </motion.div>
+
+        <motion.span
+          className="mt-6 inline-flex items-center gap-2 rounded-full border border-champagne bg-white px-4 py-1.5 text-sm font-medium text-ink"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.95, duration: 0.7 }}
+        >
+          ✦ {site.customOrders}
+        </motion.span>
       </div>
     </section>
   )

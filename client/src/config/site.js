@@ -5,23 +5,25 @@
 export const site = {
   name: 'Dasari Jewellers',
   tagline: 'Fine Jewellery',
+  motto: 'Trust is our strength · Quality is our goal',
+  customOrders: 'We take custom orders too',
   blurb: 'A curated house of gold, diamond and pearl pieces — crafted to be lived in and handed down.',
 
   // WhatsApp — digits only, international format (no +, spaces or dashes).
-  whatsappNumber: '919000000000',
-  phoneDisplay: '+91 90000 00000',
-  phoneHref: 'tel:+919000000000',
-  email: 'visit@aurelia.example',
+  whatsappNumber: '919553322216',
+  phoneDisplay: '+91 95533 22216',
+  phoneHref: 'tel:+919553322216',
+  email: 'abdulsatya@gmail.com',
 
-  address: 'Shop 7, Jewel Arcade, Gachibowli, Hyderabad – 500032',
+  address: 'Behind NTR Statue, Beside Bus Stand, Main Road, Devarapalli – 534313',
   hours: [
     { day: 'Mon – Sat', time: '11:00 AM – 8:30 PM' },
     { day: 'Sunday', time: '12:00 PM – 6:00 PM' },
   ],
 
   // Google Maps embed (replace q= with the exact store listing when available).
-  mapEmbed: 'https://www.google.com/maps?q=Gachibowli,+Hyderabad,+Telangana+500032&output=embed',
-  mapsLink: 'https://maps.google.com/?q=Gachibowli,+Hyderabad',
+  mapEmbed: 'https://www.google.com/maps?q=Bus+Stand,+Main+Road,+Devarapalli,+534313&output=embed',
+  mapsLink: 'https://maps.google.com/?q=Bus+Stand,+Main+Road,+Devarapalli,+534313',
 
   socials: [
     { label: 'Instagram', url: 'https://instagram.com/' },

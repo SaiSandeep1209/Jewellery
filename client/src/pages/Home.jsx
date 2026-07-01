@@ -34,8 +34,9 @@ export default function Home() {
             <SectionTitle eyebrow="Our House" title="Quiet luxury, honestly made." />
             <p className="mt-5 text-stone">
               Every Dasari piece is chosen for its craftsmanship and its longevity — gold that warms
-              with wear, stones selected by eye, settings finished by hand. We keep a small, considered
-              collection in store, and we’d love to show it to you.
+              with wear, stones selected by eye, settings finished by hand. From fine gold and diamond
+              pieces to a bright range of <span className="text-ink">925 sterling silver</span>, we keep
+              a small, considered collection in store, and we’d love to show it to you.
             </p>
             <Link to="/collections" className="btn-outline mt-7">Browse the collection</Link>
           </Reveal>
